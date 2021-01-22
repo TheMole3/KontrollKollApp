@@ -1,1 +1,3 @@
 KontrollKollBarn/node_modules/**/*
+KontrollKollBarn/.expo/**/*
+KontrollKollBarn/.expo-shared/**/*
