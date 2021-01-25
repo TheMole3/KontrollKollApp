@@ -6,7 +6,7 @@
     "orientation": "portrait",
     "icon": "./assets/favicon.png",
     "splash": {
-      "image": "./assets/logoTrans.svg",
+      "image": "./assets/logoTrans.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },

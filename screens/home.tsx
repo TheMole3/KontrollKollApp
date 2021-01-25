@@ -9,17 +9,18 @@ import homeStyle from "../stylesheets/homeStyle";
 import globalStyle from "../stylesheets/globalStyle"
 
 const DATA = require("../example-data.json");
+console.log(DATA)
 
 const colorValues = [
   "#54478C", "#058BA8", "#16DB93", "#83E377", "#B9E769", "#EFEA5A", "#F1C453", "#F29E4C"
 ]
-var randomColor = (lastColor: String|Boolean = false) => {
+function randomColor(lastColor: String|Boolean = false):any {
   let color = colorValues[Math.floor(Math.random()*colorValues.length)]
   if(color == lastColor) return randomColor(lastColor); else return color;
 }
 
-let lastColor: boolean|string|undefined = false;
-const ToDo = ({props}) => {
+let lastColor: boolean|string = false;
+const ToDo = ({props}:any) => {
     var color = randomColor(lastColor || false)
     lastColor = color
     return (
@@ -31,7 +32,7 @@ const ToDo = ({props}) => {
 }
 
 export default function HomeScreen() {
-  const renderItem = ({ item }) => (
+  const renderItem = ({item}:any) => (
     <ToDo props={item} />
   );
 

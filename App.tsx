@@ -8,8 +8,6 @@ import { useFonts } from 'expo-font';
 var HomeScreen = require("./screens/home.tsx").default;
 var RewardsScreen = require("./screens/rewards.tsx").default;
 
-console.log(HomeScreen)
-
 var UnimplementedScreen = function() {
   return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
@@ -21,6 +19,12 @@ var UnimplementedScreen = function() {
 const Tab = createBottomTabNavigator();
 
 export default function App() {
+  const forFade = ({ current }:any) => ({
+    cardStyle: {
+      opacity: current.progress,
+    },
+  });
+
   let [fontsLoaded] = useFonts({
     'Oswald-Regular': require('./assets/fonts/Oswald-Regular.ttf'),
     'Oswald-Light': require('./assets/fonts/Oswald-Light.ttf'),
@@ -31,7 +35,11 @@ export default function App() {
   } else {
     return (
       <NavigationContainer>
-        <Tab.Navigator>
+        <Tab.Navigator
+        screenOptions={{
+          headerShown: false,
+          cardStyleInterpolator: forFade,
+        }} >
           <Tab.Screen name="Uppgifter" component={HomeScreen} />
           <Tab.Screen name="Belöningar" component={RewardsScreen} />
           <Tab.Screen name="Chatt" component={UnimplementedScreen} />

@@ -1,7 +1,9 @@
 import React from 'react';
 import { StyleSheet, Text, View, FlatList, SafeAreaView, Platform, StatusBar } from 'react-native';
 import {LinearGradient} from 'expo-linear-gradient';
+
 import SafeViewAndroid from "../components/SafeViewAndroid";
+import Background from "../components/background";
 
 export default function rewardsScreen() {
   return (
@@ -9,13 +11,7 @@ export default function rewardsScreen() {
       <SafeAreaView style={[SafeViewAndroid.AndroidSafeArea]}>
 
       </SafeAreaView>
-      <LinearGradient
-          colors={['#2C699A', '#fff']}
-          style={styles.linearGradient}
-          start={{ x: 0, y: 0 }}
-          end={{ x: .5, y: 1 }}
-          locations={[0.3,1]}
-      ></LinearGradient>
+      <Background></Background>
     </View>
   )
 }
