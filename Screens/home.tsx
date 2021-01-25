@@ -57,48 +57,4 @@ export default function HomeScreen() {
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  pointsText: {
-    textAlignVertical: 'center',
-    fontSize: 40,
-    color: "#16DB93",
-    textShadowColor: 'rgba(0, 0, 0, 0.5)',
-    textShadowOffset: {width: -0.5, height: -0.5},
-    textShadowRadius: 10,
-    fontFamily: "Oswald-Regular",
-    fontWeight:'bold',
-    marginBottom: 10,
-  },
-  TodoView: {
-    marginLeft: 5,
-    marginRight: 5,
-    flexDirection: "row",
-    alignItems: "center",
-    borderRadius: 5,
-    marginBottom:10,
-    padding:15,
-    elevation:2,
-    shadowColor: "#000",
-    shadowOffset: {
-      width: 0,
-      height: 5,
-    },
-    shadowOpacity: 0.34,
-    shadowRadius: 6.27,
-  },
-  linearGradient: {
-    zIndex: -5,
-    elevation: -5,
-    position: "absolute",
-    alignItems: 'center',
-    justifyContent: 'center',
-    borderRadius: 5,
-    height: "100%",
-    width: "100%",
-  },
-});
+const styles = require("./stylesheets/homeStyle.tsx")

@@ -10,7 +10,7 @@ var RewardsScreen = require("./screens/rewards.tsx").default;
 
 console.log(HomeScreen)
 
-function SettingsScreen() {
+var UnimplementedScreen = function() {
   return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
       <Text>Not Inplemented!</Text>
@@ -34,7 +34,7 @@ export default function App() {
         <Tab.Navigator>
           <Tab.Screen name="Uppgifter" component={HomeScreen} />
           <Tab.Screen name="Belöningar" component={RewardsScreen} />
-          <Tab.Screen name="Chatt" component={SettingsScreen} />
+          <Tab.Screen name="Chatt" component={UnimplementedScreen} />
         </Tab.Navigator>
       </NavigationContainer>
     );
