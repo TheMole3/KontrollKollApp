@@ -13,8 +13,19 @@ import {
 
 const DATA = [
   {
-    title: 'First Item',
-    points: "200",
+    title: 'Städa rummet',
+    points: 200,
+  },
+  {
+    title: 'Ta ut soporna',
+    points: 500,
+  },
+  {
+    title: 'Mata katten',
+    points: 50,
+  },{
+    title: 'Städa rummeta',
+    points: 200,
   },
   {
     title: 'Ta ut sopornaa',
