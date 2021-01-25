@@ -3,6 +3,7 @@ import React from 'react';
 import { StyleSheet, Text, View, FlatList, SafeAreaView, Platform, StatusBar } from 'react-native';
 import {LinearGradient} from 'expo-linear-gradient';
 import SafeViewAndroid from "../components/SafeViewAndroid";
+import styles from "../stylesheets/homeStyle";
 
 const DATA = require("example-data.json");
 
@@ -56,5 +57,3 @@ export default function HomeScreen() {
     </View>
   );
 }
-
-const styles = require("./stylesheets/homeStyle.tsx")

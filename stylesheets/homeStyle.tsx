@@ -1,11 +1,6 @@
 import { StyleSheet} from 'react-native';
 
 export default StyleSheet.create({
-    container: {
-      flex: 1,
-      alignItems: 'center',
-      justifyContent: 'center',
-    },
     pointsText: {
       textAlignVertical: 'center',
       fontSize: 40,
@@ -33,16 +28,6 @@ export default StyleSheet.create({
       },
       shadowOpacity: 0.34,
       shadowRadius: 6.27,
-    },
-    linearGradient: {
-      zIndex: -5,
-      elevation: -5,
-      position: "absolute",
-      alignItems: 'center',
-      justifyContent: 'center',
-      borderRadius: 5,
-      height: "100%",
-      width: "100%",
     },
   });
   
