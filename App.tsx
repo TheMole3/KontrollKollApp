@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Text, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
 import AppLoading from 'expo-app-loading';
 import { useFonts } from 'expo-font';
 
@@ -16,7 +16,7 @@ var UnimplementedScreen = function() {
   );
 }
 
-const Tab = createBottomTabNavigator();
+const Tab = createMaterialBottomTabNavigator();
 
 export default function App() {
   const forFade = ({ current }:any) => ({
