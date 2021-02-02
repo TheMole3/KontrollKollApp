@@ -1,6 +1,6 @@
 
 import React from 'react';
-import {Text, View, FlatList, SafeAreaView} from 'react-native';
+import {Text, View, FlatList, SafeAreaView, TouchableOpacity} from 'react-native';
 
 import SafeViewAndroid from "../components/SafeViewAndroid";
 import Background from "../components/background";
@@ -23,16 +23,20 @@ const ToDo = ({props}:any) => {
     var color = randomColor(lastColor || false)
     lastColor = color
     return (
-      <View style={[homeStyle.TodoView, {backgroundColor: color}]}>
-        <Text numberOfLines={1} style={{ flex: 4, textAlign: "left", fontSize:20, fontFamily: "Oswald-Light", fontWeight:"300"}}>{props.title}</Text>
-        <Text style={{flex: 1, textAlign: "right", fontSize:15, marginRight:10, fontFamily: "Oswald-Light", fontWeight:"300"}}>{props.points + "p"}</Text>
-      </View>
+      <TouchableOpacity style={[homeStyle.TodoView, {backgroundColor: color}]}
+        onPress={() => {
+          props.navigation.navigate('Camera', {"task": props.item})
+        }}
+      >
+        <Text numberOfLines={1} style={{ flex: 4, textAlign: "left", fontSize:20, fontFamily: "Oswald-Light", fontWeight:"300"}}>{props.item.title}</Text>
+        <Text style={{flex: 1, textAlign: "right", fontSize:15, marginRight:10, fontFamily: "Oswald-Light", fontWeight:"300"}}>{props.item.points + "p"}</Text>
+      </TouchableOpacity >
     )
 }
 
-export default function HomeScreen() {
+export default function HomeScreen({navigation}:any) {
   const renderItem = ({item}:any) => (
-    <ToDo props={item} />
+    <ToDo props={{item, navigation}} />
   );
 
   return (

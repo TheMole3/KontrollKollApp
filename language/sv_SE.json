@@ -1,0 +1,15 @@
+{
+    "error": {
+        "notImplemented": "Inte implementerad!",
+        "noCameraAccess": "Kan inte komma åt kameran!"
+    },
+    "pages": {
+        "tasks": "Uppgifter",
+        "rewards": "Belöningar",
+        "chat": "Chatt"
+    },
+    "camera": {
+        "turn": "Vänd kamera",
+        "snap": "Ta bild"
+    }
+}
