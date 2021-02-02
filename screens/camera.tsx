@@ -1,11 +1,13 @@
+import locale from "../language/sv_SE.json"
+
 import React, {useState, useEffect } from 'react';
 import { StyleSheet, Text, View, FlatList, SafeAreaView, Platform, StatusBar, TouchableOpacity } from 'react-native';
 import { Camera } from 'expo-camera';
 
-import SafeViewAndroid from "../components/SafeViewAndroid";
-import Background from "../components/background";
+export default function cameraScreen({navigation, route}:any) {
+  const {task} = route.params;
 
-export default function rewardsScreen() {
+  var camera:any; 
   const [hasPermission, setHasPermission] = useState(null);
   const [type, setType] = useState(Camera.Constants.Type.back);
 
@@ -20,28 +22,48 @@ export default function rewardsScreen() {
     return <View />;
   }
   if (hasPermission === false) {
-    return <Text>No access to camera</Text>;
+    return <Text>{locale.error.noCameraAccess}</Text>;
   }
 
+  var snap = async () => {
+    if (camera) {
+      let photo = await camera.takePictureAsync({skipProcessing: true});
+      camera.pausePreview()
+      console.log(photo)
+      navigation.navigate('Image', {'photo':photo, 'task':task})
+      camera.resumePreview()
+    }
+  };
+
   return (
-    <View style={{flex:1}}>
-      <SafeAreaView style={[SafeViewAndroid.AndroidSafeArea]}>
-      <Camera style={{height:"40vw", width:"30vw"}} ratio={'4:3'} type={type}>
-        <View>
-          <TouchableOpacity 
-            onPress={() => {
-              setType(
-                type === Camera.Constants.Type.back
-                  ? Camera.Constants.Type.front
-                  : Camera.Constants.Type.back
-              );
-            }}>
-            <Text> Flip </Text>
-          </TouchableOpacity>
+    <View style={{flex:1, backgroundColor: "black"}}>
+        <View style={styles.container}>
+          <Text style={{position: "absolute",color:"white", zIndex: 5, elevation: 5}}>Ta en bild där du gör uppgiften:{"\n"}{task.title}</Text>
+          <Camera style={styles.camera} type={type} ref={ref => {
+            camera = ref;
+          }}>
+            <View style={styles.buttonContainer}>
+              <TouchableOpacity
+                style={styles.button}
+                onPress={() => {
+                  setType(
+                    type === Camera.Constants.Type.back
+                      ? Camera.Constants.Type.front
+                      : Camera.Constants.Type.back
+                  );
+                }}>
+                <Text style={styles.text}> {locale.camera.turn} </Text>
+              </TouchableOpacity>
+              <TouchableOpacity
+                style={styles.button}
+                onPress={() => {
+                  snap()
+                }}>
+                <Text style={styles.text}> {locale.camera.snap} </Text>
+              </TouchableOpacity>
+            </View>
+          </Camera>
         </View>
-      </Camera>
-      </SafeAreaView>
-      <Background></Background>
     </View>
   )
 }
@@ -49,7 +71,24 @@ export default function rewardsScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+  },
+  camera: {
+    flex: 1,
+  },
+  buttonContainer: {
+    flex: 1,
+    backgroundColor: 'transparent',
+    flexDirection: 'row',
+    alignItems: "center",
+    margin: 20,
+  },
+  button: {
+    flex: 0.5,
+    alignSelf: 'flex-end',
     alignItems: 'center',
-    justifyContent: 'center',
-  }
+  },
+  text: {
+    fontSize: 18,
+    color: 'white',
+  },
 });
