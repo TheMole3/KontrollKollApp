@@ -1,0 +1,15 @@
+{
+    "error": {
+        "notImplemented": "No se ha implementado!",
+        "noCameraAccess": "No se puede acceder a la cámara!"
+    },
+    "pages": {
+        "tasks": "Tareas",
+        "rewards": "Recompensas",
+        "chat": "Charla"
+    },
+    "camera": {
+        "turn": "Girar cámara",
+        "snap": "Toma una foto"
+    }
+}

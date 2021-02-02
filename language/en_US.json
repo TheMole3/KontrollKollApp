@@ -1,0 +1,15 @@
+{
+    "error": {
+        "notImplemented": "Not implemented!",
+        "noCameraAccess": "Cannot acces camera!"
+    },
+    "pages": {
+        "tasks": "Tasks",
+        "rewards": "Rewards",
+        "chat": "Chat"
+    },
+    "camera": {
+        "turn": "Flip camera",
+        "snap": "Take picture"
+    }
+}

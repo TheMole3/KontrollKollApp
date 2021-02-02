@@ -1,0 +1,15 @@
+{
+    "error": {
+        "notImplemented": "لم تنفذ!",
+        "noCameraAccess": "لا يمكن الوصول إلى الكاميرا!"
+    },
+    "pages": {
+        "tasks": "مهام",
+        "rewards": "المكافآت",
+        "chat": "دردشة"
+    },
+    "camera": {
+        "turn": "اقلب الكاميرا",
+        "snap": "التقط صوره"
+    }
+}

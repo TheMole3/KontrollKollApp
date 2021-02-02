@@ -1,0 +1,15 @@
+{
+    "error": {
+        "notImplemented": "未實現!",
+        "noCameraAccess": "無法訪問相機!"
+    },
+    "pages": {
+        "tasks": "任務",
+        "rewards": "獎勵",
+        "chat": "聊天室"
+    },
+    "camera": {
+        "turn": "翻轉相機",
+        "snap": "拍照"
+    }
+}
