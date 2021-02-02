@@ -5,6 +5,8 @@ import {LinearGradient} from 'expo-linear-gradient';
 import SafeViewAndroid from "../components/SafeViewAndroid";
 import Background from "../components/background";
 
+import globalStyle from "../stylesheets/globalStyle"
+
 export default function rewardsScreen() {
   return (
     <View style={{flex:1}}>
@@ -15,21 +17,3 @@ export default function rewardsScreen() {
     </View>
   )
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  linearGradient: {
-    zIndex: -5,
-    elevation: -5,
-    position: "absolute",
-    alignItems: 'center',
-    justifyContent: 'center',
-    borderRadius: 5,
-    height: "100%",
-    width: "100%",
-  }
-});
