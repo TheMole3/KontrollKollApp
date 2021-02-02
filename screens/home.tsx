@@ -9,7 +9,6 @@ import homeStyle from "../stylesheets/homeStyle";
 import globalStyle from "../stylesheets/globalStyle"
 
 const DATA = require("../example-data.json");
-console.log(DATA)
 
 const colorValues = [
   "#54478C", "#058BA8", "#16DB93", "#83E377", "#B9E769", "#EFEA5A", "#F1C453", "#F29E4C"

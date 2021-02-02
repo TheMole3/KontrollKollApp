@@ -7,6 +7,7 @@ import { useFonts } from 'expo-font';
 
 var HomeScreen = require("./screens/home.tsx").default;
 var RewardsScreen = require("./screens/rewards.tsx").default;
+var CameraScreen = require("./screens/camera.tsx").default;
 
 var UnimplementedScreen = function() {
   return (
@@ -35,14 +36,10 @@ export default function App() {
   } else {
     return (
       <NavigationContainer>
-        <Tab.Navigator
-        screenOptions={{
-          headerShown: false,
-          cardStyleInterpolator: forFade,
-        }} >
+        <Tab.Navigator>
           <Tab.Screen name="Uppgifter" component={HomeScreen} />
           <Tab.Screen name="Belöningar" component={RewardsScreen} />
-          <Tab.Screen name="Chatt" component={UnimplementedScreen} />
+          <Tab.Screen name="Chatt" component={CameraScreen} />
         </Tab.Navigator>
       </NavigationContainer>
     );
