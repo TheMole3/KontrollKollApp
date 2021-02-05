@@ -9,6 +9,8 @@ import homeStyle from "../stylesheets/homeStyle";
 import globalStyle from "../stylesheets/globalStyle"
 
 import emojis from '../assets/emoji/emojis'
+import taskImage from '../assets/taskImages/taskImages'
+
 
 const colorValues = [
   "#54478C", "#058BA8", "#16DB93", "#83E377", "#B9E769", "#EFEA5A", "#F1C453", "#F29E4C"
@@ -22,12 +24,17 @@ let lastColor: boolean|string = false;
 const ToDo = ({props}:any) => {
     var color = randomColor(lastColor || false)
     lastColor = color
+
     return (
       <TouchableOpacity style={[homeStyle.TodoView, {backgroundColor: color}]}
         onPress={() => {
           props.navigation.navigate('Camera', {"task": props.item})
         }}
       >
+        <SvgUri
+          style={homeStyle.taskPic}
+          source={taskImage[props.item.icon]}
+          />
         <Text numberOfLines={1} style={{ flex: 4, textAlign: "left", fontSize:20, fontFamily: "Oswald-Light", fontWeight:"300"}}>{props.item.title}</Text>
         <Text style={{flex: 1, textAlign: "right", fontSize:15, marginRight:10, fontFamily: "Oswald-Light", fontWeight:"300"}}>{props.item.points + "p"}</Text>
       </TouchableOpacity >

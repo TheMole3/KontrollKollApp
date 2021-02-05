@@ -38,6 +38,12 @@ export default StyleSheet.create({
       backgroundColor: "white",
       borderRadius: 50,
       margin: 5,
+    },
+    taskPic: {
+      alignSelf: "center",
+      marginRight: 10,
+      width: 30,
+      height: 30,
     }
   });
   
