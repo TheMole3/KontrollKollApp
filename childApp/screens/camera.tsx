@@ -1,4 +1,4 @@
-import locale from "../language/sv_SE.json"
+import locale from "../../language/sv_SE.json"
 
 import React, {useState, useEffect } from 'react';
 import { StyleSheet, Text, View, FlatList, SafeAreaView, Platform, StatusBar, TouchableOpacity } from 'react-native';

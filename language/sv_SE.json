@@ -12,5 +12,9 @@
         "turn": "Vänd kamera",
         "snap": "Ta bild",
         "takeAPic": "Ta en bild när du gör uppgiften"
+    },
+    "startScreen": {
+        "child": "Barn",
+        "parent": "Förälder"
     }
 }

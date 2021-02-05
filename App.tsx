@@ -1,49 +1,75 @@
-global.pId = 1
-
 import locale from "./language/sv_SE.json"
 
 import * as React from 'react';
-import { Text, View, Image } from 'react-native';
+import { Text, View, Image, Button } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import AppLoading from 'expo-app-loading';
 import { useFonts } from 'expo-font';
 
-var RewardsScreen = require("./screens/rewards.tsx").default;
+import globalStyle from "./stylesheets/globalStyle"
 
-var UnimplementedScreen = function() {
+import { SafeAreaView } from "react-native-safe-area-context";
+import Background from "./components/background";
+import { TouchableOpacity } from "react-native-gesture-handler";
+import SafeViewAndroid from "./components/SafeViewAndroid";
+
+const pcChoose = createStackNavigator();
+
+function SelectScreen({navigation}) { 
   return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>{locale.error.notImplemented}</Text>
+    <View style={globalStyle.container}>
+      <SafeAreaView style={[SafeViewAndroid.AndroidSafeArea]}>
+          <TouchableOpacity
+            style={{backgroundColor: "pink",
+            marginLeft: 5,
+            marginRight: 5,
+            flexDirection: "row",
+            alignItems: "center",
+            borderWidth: 0.5,
+            borderColor: "#66614f",
+            borderRadius: 5,
+            marginBottom:10,
+            padding:15,
+            shadowOpacity: 0.34,
+            shadowRadius: 6.27,
+          }}
+          onPress={() => {
+            navigation.navigate("Parent")
+          }}
+          >
+            <Text style={{fontSize:20, fontFamily: "Oswald-Regular"}}>{locale.startScreen.parent}</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={{backgroundColor: "lightblue",
+            marginLeft: 5,
+            marginRight: 5,
+            flexDirection: "row",
+            alignItems: "center",
+            borderWidth: 0.5,
+            borderColor: "#66614f",
+            borderRadius: 5,
+            marginBottom:10,
+            padding:15,
+            shadowOpacity: 0.34,
+            shadowRadius: 6.27,
+          }}
+          onPress={() => {
+            navigation.navigate("Child")
+          }}
+          >
+            <Text style={{fontSize:20, fontFamily: "Oswald-Regular"}}>{locale.startScreen.child}</Text>
+          </TouchableOpacity>
+      </SafeAreaView>
     </View>
-  );
-}
+  )
+};
 
-const TaskStack = createStackNavigator();
-
-var HomeScreen = require("./screens/home.tsx").default;
-var CameraScreen = require("./screens/camera.tsx").default;
-var ImageScreen = require("./screens/photo.tsx").default;
-function TaskStackScreen() {
-  return (
-    <TaskStack.Navigator>
-      <TaskStack.Screen  name="Home" options={{headerShown: false}} component={HomeScreen} />
-      <TaskStack.Screen name="Camera" options={({ route }) => ({ title: route.params.task.title })} component={CameraScreen} />
-      <TaskStack.Screen name="Image" component={ImageScreen} />
-    </TaskStack.Navigator>
-  );
-}
-
-const Tab = createBottomTabNavigator();
+var ChildScreen = require("./childApp/childView").default;
+var ParentScreen = require("./parentApp/parentView").default;
 
 export default function App() {
-  const forFade = ({ current }:any) => ({
-    cardStyle: {
-      opacity: current.progress,
-    },
-  });
-
   let [fontsLoaded] = useFonts({
     'Oswald-Regular': require('./assets/fonts/Oswald-Regular.ttf'),
     'Oswald-Light': require('./assets/fonts/Oswald-Light.ttf'),
@@ -54,25 +80,12 @@ export default function App() {
   } else {
     return (
       <NavigationContainer>
-        <Tab.Navigator>
-          <Tab.Screen name="tasks" 
-          options={{title: locale.pages.tasks, 
-            tabBarIcon: ({focused, color, size}) => (
-              <Image
-                source={require('./assets/tasks.png')}
-                style={{
-                  width: size,
-                  height: size,
-                }}
-              />
-            ),
-          }} 
-          component={TaskStackScreen} 
-          />
-          <Tab.Screen name="rewards" options={{title: locale.pages.rewards}} component={RewardsScreen} />
-          <Tab.Screen name="chat" options={{title: locale.pages.chat}} component={UnimplementedScreen} />
-        </Tab.Navigator>
+        <pcChoose.Navigator>
+          <pcChoose.Screen name="Select" options={{headerShown: false}} component={SelectScreen} />
+          <pcChoose.Screen  name="Child" options={{headerShown: false}} component={ChildScreen} />
+          <pcChoose.Screen name="Parent" options={{headerShown: false}} component={ParentScreen} />
+        </pcChoose.Navigator>
       </NavigationContainer>
-    );
+    )
   }
 }

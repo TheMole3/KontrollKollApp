@@ -2,14 +2,14 @@ import React, { useEffect, useState } from 'react';
 import {Text, View, FlatList, SafeAreaView, TouchableOpacity, Image} from 'react-native';
 import SvgUri from 'expo-svg-uri'
 
-import SafeViewAndroid from "../components/SafeViewAndroid";
-import Background from "../components/background";
+import SafeViewAndroid from "../../components/SafeViewAndroid";
+import Background from "../../components/background";
 
 import homeStyle from "../stylesheets/homeStyle";
-import globalStyle from "../stylesheets/globalStyle"
+import globalStyle from "../../stylesheets/globalStyle"
 
-import emojis from '../assets/emoji/emojis'
-import taskImage from '../assets/taskImages/taskImages'
+import emojis from '../../assets/emoji/emojis'
+import taskImage from '../../assets/taskImages/taskImages'
 
 
 const colorValues = [
@@ -27,7 +27,7 @@ const ToDo = ({props}:any) => {
         <SvgUri
           style={homeStyle.taskPic}
           source={taskImage[props.item.icon]}
-          />
+        />
         <Text numberOfLines={1} style={{ flex: 4, textAlign: "left", fontSize:20, fontFamily: "Oswald-Light", fontWeight:"300"}}>{props.item.title}</Text>
         <Text style={{flex: 1, textAlign: "right", fontSize:15, marginRight:10, fontFamily: "Oswald-Light", fontWeight:"300"}}>{props.item.points + "p"}</Text>
       </TouchableOpacity >
