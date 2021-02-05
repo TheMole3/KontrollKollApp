@@ -3,7 +3,7 @@ global.pId = 1
 import locale from "./language/sv_SE.json"
 
 import * as React from 'react';
-import { Text, View } from 'react-native';
+import { Text, View, Image } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
@@ -55,7 +55,20 @@ export default function App() {
     return (
       <NavigationContainer>
         <Tab.Navigator>
-          <Tab.Screen name="tasks" options={{title: locale.pages.tasks}} component={TaskStackScreen} />
+          <Tab.Screen name="tasks" 
+          options={{title: locale.pages.tasks, 
+            tabBarIcon: ({focused, color, size}) => (
+              <Image
+                source={require('./assets/tasks.png')}
+                style={{
+                  width: size,
+                  height: size,
+                }}
+              />
+            ),
+          }} 
+          component={TaskStackScreen} 
+          />
           <Tab.Screen name="rewards" options={{title: locale.pages.rewards}} component={RewardsScreen} />
           <Tab.Screen name="chat" options={{title: locale.pages.chat}} component={UnimplementedScreen} />
         </Tab.Navigator>
