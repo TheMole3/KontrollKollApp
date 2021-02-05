@@ -10,6 +10,7 @@
     },
     "camera": {
         "turn": "Vänd kamera",
-        "snap": "Ta bild"
+        "snap": "Ta bild",
+        "takeAPic": "Ta en bild när du gör uppgiften"
     }
 }

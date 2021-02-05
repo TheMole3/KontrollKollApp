@@ -2,65 +2,78 @@
     {
       "title": "Städa rummet",
       "points": 200,
-      "id":1
+      "id":1,
+      "done": false
     },
     {
       "title": "Ta ut soporna",
       "points": 500,
-      "id":2
+      "id":2,
+      "done": false
     },
     {
       "title": "Mata katten",
       "points": 50,
-      "id":3
+      "id":3,
+      "done": false
     },{
       "title": "Städa rummet",
       "points": 200,
-      "id":4
+      "id":4,
+      "done": false
     },
    {
       "title": "Ta ut soporna",
       "points": 500,
-      "id":5
+      "id":5,
+      "done": false
     },
     {
       "title": "Mata katten",
       "points": 50,
-      "id":6
+      "id":6,
+      "done": false
     },
     {
       "title": "Mata katten",
       "points": 50,
-      "id":7
+      "id":7,
+      "done": false
     },
     {
       "title": "Mata katten",
       "points": 50,
-      "id":8
+      "id":8,
+      "done": false
     },
     {
       "title": "Mata katten",
       "points": 50,
-      "id":9
+      "id":9,
+      "done": false
     },
     {
       "title": "Mata katten",
       "points": 50,
-      "id":10
+      "id":10,
+      "done": false
     },
     {
       "title": "Mata katten",
       "points": 50,
-      "id":11
+      "id":11,
+      "done": false
     },
     {
       "title": "Mata katten",
       "points": 50,
-      "id":12
+      "id":12,
+      "done": false
     },
     {
       "title": "Mata katten",
       "points": 50,
-      "id":13
+      "id":13,
+      "done": false
     }
   ]

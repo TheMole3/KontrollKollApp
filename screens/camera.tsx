@@ -29,7 +29,6 @@ export default function cameraScreen({navigation, route}:any) {
     if (camera) {
       let photo = await camera.takePictureAsync({skipProcessing: true});
       camera.pausePreview()
-      console.log(photo)
       navigation.navigate('Image', {'photo':photo, 'task':task})
       camera.resumePreview()
     }
@@ -38,7 +37,7 @@ export default function cameraScreen({navigation, route}:any) {
   return (
     <View style={{flex:1, backgroundColor: "black"}}>
         <View style={styles.container}>
-          <Text style={{position: "absolute",color:"white", zIndex: 5, elevation: 5}}>Ta en bild där du gör uppgiften:{"\n"}{task.title}</Text>
+          <Text style={{position: "absolute",color:"white", zIndex: 5, elevation: 5}}>{locale.camera.takeAPic}</Text>
           <Camera style={styles.camera} type={type} ref={ref => {
             camera = ref;
           }}>

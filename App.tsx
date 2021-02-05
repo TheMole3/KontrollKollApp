@@ -1,3 +1,5 @@
+global.pId = 1
+
 import locale from "./language/sv_SE.json"
 
 import * as React from 'react';
@@ -9,8 +11,6 @@ import AppLoading from 'expo-app-loading';
 import { useFonts } from 'expo-font';
 
 var RewardsScreen = require("./screens/rewards.tsx").default;
-
-
 
 var UnimplementedScreen = function() {
   return (
@@ -29,7 +29,7 @@ function TaskStackScreen() {
   return (
     <TaskStack.Navigator>
       <TaskStack.Screen  name="Home" options={{headerShown: false}} component={HomeScreen} />
-      <TaskStack.Screen name="Camera" component={CameraScreen} />
+      <TaskStack.Screen name="Camera" options={({ route }) => ({ title: route.params.task.title })} component={CameraScreen} />
       <TaskStack.Screen name="Image" component={ImageScreen} />
     </TaskStack.Navigator>
   );

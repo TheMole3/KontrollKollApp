@@ -29,5 +29,15 @@ export default StyleSheet.create({
       shadowOpacity: 0.34,
       shadowRadius: 6.27,
     },
+    profilePic: {
+      right:10,
+      top:0,
+      position: "absolute",
+      width: 40,
+      height: 40,
+      backgroundColor: "white",
+      borderRadius: 50,
+      margin: 5,
+    }
   });
   
