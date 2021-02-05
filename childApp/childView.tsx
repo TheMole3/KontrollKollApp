@@ -45,21 +45,41 @@ export default function App() {
   return (
       <Tab.Navigator>
         <Tab.Screen name="tasks" 
-        options={{title: locale.pages.tasks, 
-          tabBarIcon: ({focused, color, size}) => (
-            <Image
-              source={require('../assets/tasks.png')}
-              style={{
-                width: size,
-                height: size,
-              }}
-            />
-          ),
-        }} 
-        component={TaskStackScreen} 
+          options={{
+            title: locale.pages.tasks, 
+            tabBarIcon: ({focused, color, size}) => (
+              <Image
+                source={require('../assets/tasks.png')}
+                style={{
+                  width: size,
+                  height: size,
+                }}
+              />
+            ),
+          }} 
+          component={TaskStackScreen} 
         />
-        <Tab.Screen name="rewards" options={{title: locale.pages.rewards}} component={RewardsScreen} />
-        <Tab.Screen name="chat" options={{title: locale.pages.chat}} component={UnimplementedScreen} />
+        <Tab.Screen name="rewards" 
+          options={{
+            title: locale.pages.rewards,  
+          }} 
+          component={RewardsScreen} 
+        />
+        <Tab.Screen name="chat" 
+          options={{
+            title: locale.pages.chat,
+            tabBarIcon: ({focused, color, size}) => (
+              <Image
+                source={require('../assets/chat.png')}
+                style={{
+                  width: size,
+                  height: size,
+                }}
+              />
+            ),
+          }} 
+          component={UnimplementedScreen} 
+        />
       </Tab.Navigator>
   );
 }

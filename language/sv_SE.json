@@ -1,7 +1,8 @@
 {
     "error": {
         "notImplemented": "Inte implementerad!",
-        "noCameraAccess": "Kan inte komma åt kameran!"
+        "noCameraAccess": "Kan inte komma åt kameran!",
+        "error": "Något gick fel"
     },
     "pages": {
         "tasks": "Uppgifter",
@@ -11,7 +12,8 @@
     "camera": {
         "turn": "Vänd kamera",
         "snap": "Ta bild",
-        "takeAPic": "Ta en bild när du gör uppgiften"
+        "takeAPic": "Ta en bild när du gör uppgiften",
+        "done": "Uppdrag slutfört!"
     },
     "startScreen": {
         "child": "Barn",

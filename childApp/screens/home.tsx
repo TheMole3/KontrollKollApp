@@ -10,21 +10,17 @@ import globalStyle from "../../stylesheets/globalStyle"
 
 import emojis from '../../assets/emoji/emojis'
 import taskImage from '../../assets/taskImages/taskImages'
+import { useIsFocused } from '@react-navigation/native';
 
-
-const colorValues = [
-  "#54478C", "#058BA8", "#16DB93", "#83E377", "#B9E769", "#EFEA5A", "#F1C453", "#F29E4C"
-]
-
-let lastColor: boolean|string = false;
+// Task item
 const ToDo = ({props}:any) => {
     return (
-      <TouchableOpacity style={[homeStyle.TodoView]}
+      <TouchableOpacity style={[homeStyle.TodoView]} // Clickable object
         onPress={() => {
-          props.navigation.navigate('Camera', {"task": props.item})
+          props.navigation.navigate('Camera', {"task": props.item}) // Navigate to camera and send item info with
         }}
       >
-        <SvgUri
+        <SvgUri // Icon for task
           style={homeStyle.taskPic}
           source={taskImage[props.item.icon]}
         />
@@ -35,40 +31,55 @@ const ToDo = ({props}:any) => {
 }
 
 export default function HomeScreen({navigation}:any) {
-  const renderItem = ({item, index}:any) => (
+  const renderItem = ({item, index}:any) => ( // Render into flatlist
     <ToDo props={{item, navigation, index}} />
   );
 
+  // Get the tasks from kontroll.melo.se before loading app
   const [isLoading, setLoading] = useState(true);
   const [DATA, setData] = useState();
-
-  useEffect(() => {
+  useEffect(() => { 
     fetch("https://kontroll.melo.se/getTasks?id=" + global.pId).then((response) => response.json()).then((response) => {
       setData( response[0] );
       setLoading( false )
     })
   }, [])
 
+  const isFocused = useIsFocused() // When focused re-render tasks
+  useEffect(() => {
+    setLoading( true )
+    fetch("https://kontroll.melo.se/getTasks?id=" + global.pId).then((response) => response.json()).then((response) => {
+      setData( response[0] );
+      setLoading( false )
+    })
+  } , [isFocused])
+
   if (isLoading) {
     return <Background/>;
   }
+
+  // Filter out tasks that are done
+  var taskData = DATA.tasks.filter(function( obj ) {
+    return !obj.done;
+  });
 
   return (
     <View style={{flex:1}}>
       <SafeAreaView style={[SafeViewAndroid.AndroidSafeArea]}>
         <View style={globalStyle.container}>
           <SvgUri
-          style={homeStyle.profilePic}
-          source={emojis[DATA.profilePic]}
+            style={homeStyle.profilePic}
+            source={emojis[DATA.profilePic]}
           />
           <View style={{flex:.11, alignItems:'center', justifyContent: "center"}}>
             <Text style={homeStyle.pointsText}>{DATA.points}p</Text>
           </View>
           <FlatList
-          data={DATA.tasks}
-          renderItem={( item, index ) => renderItem(item, index)}
-          keyExtractor={(item, index) => index.toString()}
-          style={{width:"80%", flex:50}}
+            data={taskData}
+            extraData={taskData}
+            renderItem={( item, index ) => renderItem(item, index)}
+            keyExtractor={(item, index) => index.toString()}
+            style={{width:"80%", flex:50}}
           />
         </View>
       </SafeAreaView>

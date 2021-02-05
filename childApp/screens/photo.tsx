@@ -1,5 +1,7 @@
+import locale from "../../language/sv_SE.json"
+
 import * as React from 'react';
-import {View ,Image} from'react-native';
+import {View, Image, ToastAndroid} from'react-native';
 import { manipulateAsync, SaveFormat } from 'expo-image-manipulator';    
 
 export default function notification({ route, navigation }) {
@@ -30,7 +32,13 @@ export default function notification({ route, navigation }) {
         },
       }).then((response) => response)
       .then((responseData) => { 
-          console.log("response: " + responseData.status);
+         if(responseData.status == 200) {
+            ToastAndroid.show(locale.camera.done, ToastAndroid.SHORT)
+            setTimeout(function(){navigation.navigate("Home")},1000)
+         } else {
+            ToastAndroid.show(locale.error.error, ToastAndroid.SHORT)
+            setTimeout(function(){navigation.navigate("Home")},1000)
+         }
       }).catch((err) => { console.log(err)});
    })
 
