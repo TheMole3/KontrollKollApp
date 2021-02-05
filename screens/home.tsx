@@ -15,18 +15,11 @@ import taskImage from '../assets/taskImages/taskImages'
 const colorValues = [
   "#54478C", "#058BA8", "#16DB93", "#83E377", "#B9E769", "#EFEA5A", "#F1C453", "#F29E4C"
 ]
-function randomColor(lastColor: String|Boolean = false):any {
-  let color = colorValues[Math.floor(Math.random()*colorValues.length)]
-  if(color == lastColor) return randomColor(lastColor); else return color;
-}
 
 let lastColor: boolean|string = false;
 const ToDo = ({props}:any) => {
-    var color = randomColor(lastColor || false)
-    lastColor = color
-
     return (
-      <TouchableOpacity style={[homeStyle.TodoView, {backgroundColor: color}]}
+      <TouchableOpacity style={[homeStyle.TodoView]}
         onPress={() => {
           props.navigation.navigate('Camera', {"task": props.item})
         }}
@@ -42,8 +35,8 @@ const ToDo = ({props}:any) => {
 }
 
 export default function HomeScreen({navigation}:any) {
-  const renderItem = ({item}:any) => (
-    <ToDo props={{item, navigation}} />
+  const renderItem = ({item, index}:any) => (
+    <ToDo props={{item, navigation, index}} />
   );
 
   const [isLoading, setLoading] = useState(true);
@@ -73,8 +66,8 @@ export default function HomeScreen({navigation}:any) {
           </View>
           <FlatList
           data={DATA.tasks}
-          renderItem={renderItem}
-          keyExtractor={item => item.id}
+          renderItem={( item, index ) => renderItem(item, index)}
+          keyExtractor={(item, index) => index.toString()}
           style={{width:"80%", flex:50}}
           />
         </View>
