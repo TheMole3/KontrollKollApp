@@ -31,7 +31,7 @@ export default function App() {
             title: locale.pages.yourChildren, 
             tabBarIcon: ({focused, color, size}) => (
               <Image
-                source={require('../assets/tasks.png')}
+                source={require('../assets/childPhoto.png')}
                 style={{
                   width: size,
                   height: size,
