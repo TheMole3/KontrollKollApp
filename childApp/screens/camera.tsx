@@ -54,8 +54,8 @@ export default function cameraScreen({navigation, route}:any) {
 
                    <Image 
                    style={{
-                     width: 100,
-                     height: 100
+                     width: 70,
+                     height: 70
                    }}
                    source={require("../../assets/cameraFlip.png")}></Image>
               </TouchableOpacity>
@@ -64,7 +64,12 @@ export default function cameraScreen({navigation, route}:any) {
                 onPress={() => {
                   snap()
                 }}>
-                <Text style={styles.text}> {locale.camera.snap} </Text>
+                <Image 
+                   style={{
+                     width: 70,
+                     height: 70
+                   }}
+                   source={require("../../assets/takePicture.png")}></Image>
               </TouchableOpacity>
             </View>
           </Camera>
@@ -85,15 +90,17 @@ const styles = StyleSheet.create({
     backgroundColor: 'transparent',
     flexDirection: 'row',
     alignItems: "center",
-    margin: 20,
+    justifyContent: "space-evenly",
+    marginBottom: 20,
+    marginLeft: -120,
+    marginRight: -120,
   },
   button: {
-    flex: 0.2,
     alignSelf: 'flex-end',
     alignItems: 'center',
-    backgroundColor: "#1F65D8",
-    borderRadius: 10,
-    width: 1,
+    backgroundColor: "#FFFFFF9F",
+    borderRadius: 100,
+    padding: 8
   },
   text: {
     fontSize: 18,

@@ -82,7 +82,7 @@ export default function App() {
       <NavigationContainer>
         <pcChoose.Navigator>
           <pcChoose.Screen name="Select" options={{headerShown: false}} component={SelectScreen} />
-          <pcChoose.Screen  name="Child" options={{headerShown: false}} component={ChildScreen} />
+          <pcChoose.Screen name="Child" options={{headerShown: false}} component={ChildScreen} />
           <pcChoose.Screen name="Parent" options={{headerShown: false}} component={ParentScreen} />
         </pcChoose.Navigator>
       </NavigationContainer>
