@@ -7,7 +7,10 @@
     "pages": {
         "tasks": "Uppgifter",
         "rewards": "Belöningar",
-        "chat": "Chatt"
+        "chat": "Chatt",
+        "createTask": "Skapa uppgift",
+        "createReward": "Skapa belöning",
+        "yourChildren": "Dina barn"
     },
     "camera": {
         "turn": "Vänd kamera",
