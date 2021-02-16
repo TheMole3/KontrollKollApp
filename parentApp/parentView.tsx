@@ -18,8 +18,8 @@ var UnimplementedScreen = function() {
 const TaskStack = createStackNavigator();
 
 var ChildrenScreen = require("./screens/children.tsx").default;
-var CreateRewardScreen = require("./screens/createTask.tsx").default;
-var CreateTaskScreen = require("./screens/createRewardScreen.tsx").default;
+var CreateRewardScreen = require("./screens/createRewardScreen.tsx").default;
+var CreateTaskScreen = require("./screens/createTask.tsx").default;
 
 const Tab = createBottomTabNavigator();
 
