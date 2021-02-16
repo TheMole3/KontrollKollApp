@@ -46,7 +46,7 @@ export default function App() {
             title: locale.pages.createReward, 
             tabBarIcon: ({focused, color, size}) => (
                 <Image
-                source={require('../assets/tasks.png')}
+                source={require('../assets/rewardTrophy.png')}
                 style={{
                     width: size,
                     height: size,

@@ -61,7 +61,16 @@ export default function App() {
         />
         <Tab.Screen name="rewards" 
           options={{
-            title: locale.pages.rewards,  
+            title: locale.pages.rewards,
+            tabBarIcon: ({focused, color, size}) => (
+              <Image
+                source={require('../assets/rewardTrophy.png')}
+                style={{
+                  width: size,
+                  height: size,
+                }}
+              />
+            ),  
           }} 
           component={RewardsScreen} 
         />
