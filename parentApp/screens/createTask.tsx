@@ -4,7 +4,7 @@ import { Text, View, Image, SafeAreaView } from 'react-native';
 import globalStyle from "../../stylesheets/globalStyle"
 
 import SafeViewAndroid from "../../components/SafeViewAndroid";
-import Background from "../../components/background";
+import Background from "../../components/parentBackground";
 
 export default function childrenScreen({navigation}:any) {
     return (

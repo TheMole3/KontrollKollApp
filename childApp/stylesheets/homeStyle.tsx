@@ -13,7 +13,7 @@ export default StyleSheet.create({
       marginBottom: 10,
     },
     TodoView: {
-      backgroundColor: "#F8F0C6CC",
+      backgroundColor: "#f6f7c3CC",
       marginLeft: 5,
       marginRight: 5,
       flexDirection: "row",
