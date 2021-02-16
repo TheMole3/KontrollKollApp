@@ -43,7 +43,7 @@ export default function cameraScreen({navigation, route}:any) {
           }}>
             <View style={styles.buttonContainer}>
               <TouchableOpacity
-                style={styles.button}
+                style={styles.buttonFlip}
                 onPress={() => {
                   setType(
                     type === Camera.Constants.Type.back
@@ -54,20 +54,20 @@ export default function cameraScreen({navigation, route}:any) {
 
                    <Image 
                    style={{
-                     width: 70,
-                     height: 70
+                     width: 60,
+                     height: 60
                    }}
                    source={require("../../assets/cameraFlip.png")}></Image>
               </TouchableOpacity>
               <TouchableOpacity
-                style={styles.button}
+                style={styles.buttonSnap}
                 onPress={() => {
                   snap()
                 }}>
                 <Image 
                    style={{
-                     width: 70,
-                     height: 70
+                     width: 80,
+                     height: 80
                    }}
                    source={require("../../assets/takePicture.png")}></Image>
               </TouchableOpacity>
@@ -95,12 +95,19 @@ const styles = StyleSheet.create({
     marginLeft: -120,
     marginRight: -120,
   },
-  button: {
+  buttonFlip: {
     alignSelf: 'flex-end',
     alignItems: 'center',
     backgroundColor: "#FFFFFF9F",
     borderRadius: 100,
-    padding: 8
+    padding: 13
+  },
+  buttonSnap: {
+    alignSelf: 'flex-end',
+    alignItems: 'center',
+    backgroundColor: "#FFFFFF9F",
+    borderRadius: 100,
+    padding: 3
   },
   text: {
     fontSize: 18,
