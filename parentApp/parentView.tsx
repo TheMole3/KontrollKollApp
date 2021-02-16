@@ -71,6 +71,21 @@ export default function App() {
             }} 
             component={CreateTaskScreen}
         />
+                <Tab.Screen name="chat"
+            options={{
+            title: locale.pages.chat, 
+            tabBarIcon: ({focused, color, size}) => (
+                <Image
+                source={require('../assets/chat.png')}
+                style={{
+                    width: size,
+                    height: size,
+                }}
+                />
+            ),
+            }} 
+            component={CreateTaskScreen}
+        />
       </Tab.Navigator>
   );
 }
