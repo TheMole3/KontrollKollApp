@@ -1,7 +1,7 @@
 import locale from "../../language/sv_SE.json"
 
 import React, {useState, useEffect } from 'react';
-import { StyleSheet, Text, View, FlatList, SafeAreaView, Platform, StatusBar, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, FlatList, SafeAreaView, Platform, Image, TouchableOpacity } from 'react-native';
 import { Camera } from 'expo-camera';
 
 export default function cameraScreen({navigation, route}:any) {
@@ -51,7 +51,13 @@ export default function cameraScreen({navigation, route}:any) {
                       : Camera.Constants.Type.back
                   );
                 }}>
-                <Text style={styles.text}> {locale.camera.turn} </Text>
+
+                   <Image 
+                   style={{
+                     width: 100,
+                     height: 100
+                   }}
+                   source={require("../../assets/cameraFlip.png")}></Image>
               </TouchableOpacity>
               <TouchableOpacity
                 style={styles.button}
@@ -82,9 +88,12 @@ const styles = StyleSheet.create({
     margin: 20,
   },
   button: {
-    flex: 0.5,
+    flex: 0.2,
     alignSelf: 'flex-end',
     alignItems: 'center',
+    backgroundColor: "#1F65D8",
+    borderRadius: 10,
+    width: 1,
   },
   text: {
     fontSize: 18,
