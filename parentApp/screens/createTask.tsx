@@ -13,28 +13,44 @@ export default class createTask extends Component{
         super(props) 
         this.state = { taskName:'',taskPoints:'', child1: false, child2: false, selectedIcon: "2757"} 
         this.handleChange = this.handleChange.bind(this) 
-      } 
+    } 
       
       // Method causes to store all the values of the  
       // input field in react state single method handle  
       // input changes of all the input field using ES6  
       // javascript feature computed property names 
-      handleChange(e, name){ 
-        this.setState({ 
-          // Computed property names 
-          // keys of the objects are computed dynamically 
-          [name] : e.value 
-        }) 
-      } 
+    handleChange(e, name){ 
+    this.setState({ 
+        // Computed property names 
+        // keys of the objects are computed dynamically 
+        [name] : e.value 
+    }) 
+    } 
 
 
     render(){ 
+    var handleSubmit = () => {
+        console.log(this.state)
+        fetch("https://kontroll.melo.se/addTask", {
+            method: 'POST',
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                taskName: this.state.taskName,
+                taskPoints: this.state.taskPoints,
+                icon: this.state.selectedIcon,
+            })
+        });
+    }
+
     var emojis = require("../../assets/taskImages/taskImages").default;
     const emojiList = Object.keys(emojis).map((data) => {
         return (
             <TouchableOpacity style={[{
                 backgroundColor: "#ae69f5cc"
-            }, data==this.state.selectedIcon ? {borderWidth:5}:{borderWidth:0, top:5}]}
+            }, data==this.state.selectedIcon ? {borderWidth:5, borderRadius:5, backgroundColor: "#9455d4cc"}:{borderWidth:0, borderTopWidth: 2, borderBottomWidth: 2, top:3}]}
             onPress={() => {this.setState({selectedIcon: data})}}
             >
                 <Image style={[{width:80, height:80}]} source={emojis[data]}/>
@@ -52,6 +68,7 @@ export default class createTask extends Component{
                 <View>
                     <View style={{
                         flexDirection: "row",
+                        paddingBottom: 30,
                     }}>
                         <ScrollView
                         horizontal={true}
@@ -121,7 +138,9 @@ export default class createTask extends Component{
                     backgroundColor: "#f6f7c3CC",
                     borderRadius: 5,
                     padding: 20,
-                    }}>
+                    }}
+                    onPress={handleSubmit}
+                    >
                         <Text style={{
                         fontFamily: "Oswald-Regular",
                         fontSize: 20,              

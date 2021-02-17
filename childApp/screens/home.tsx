@@ -20,7 +20,7 @@ const ToDo = ({props}:any) => {
           props.navigation.navigate('Camera', {"task": props.item}) // Navigate to camera and send item info with
         }}
       >
-        <SvgUri // Icon for task
+        <Image // Icon for task
           style={homeStyle.taskPic}
           source={taskImage[props.item.icon]}
         />
