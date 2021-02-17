@@ -11,7 +11,7 @@ import SvgUri from 'expo-svg-uri';
 export default class createTask extends Component{ 
     constructor(props){ 
         super(props) 
-        this.state = { taskName:'',taskPoints:'', child1: false, child2: false, selectedIcon: "1F3AB"} 
+        this.state = { taskName:'',taskPoints:'', child1: false, child2: false, selectedIcon: "2757"} 
         this.handleChange = this.handleChange.bind(this) 
       } 
       
