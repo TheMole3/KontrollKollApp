@@ -32,8 +32,11 @@ export default class createTask extends Component{
     return (
         <View style={{flex:1}}>
         <SafeAreaView style={[SafeViewAndroid.AndroidSafeArea]}>
-          <View style={[globalStyle.container, {}]}>
-            <View style={{alignContent: "flex-start"}}>
+          <View style={[globalStyle.container, {
+            justifyContent: "center",
+            paddingBottom: 60
+          }]}>
+            <View style={{paddingTop: 180}}>
                 <Text>Uppgiftens namn</Text>
                 <TextInput
                     style={{ height: 40, width: 200,borderColor: 'gray', borderWidth: 1, borderRadius: 5, padding: 10, backgroundColor:"#f6f7c3CC"}}
@@ -41,7 +44,7 @@ export default class createTask extends Component{
                     onChange={e => this.handleChange(e,'taskName')}
                 />
             </View>
-            <View style={{alignContent: "flex-start"}}>
+            <View style={{alignContent: "flex-start", paddingTop: 20}}>
                 <Text>Antal poäng</Text>
                 <TextInput
                     keyboardType="numeric"
@@ -55,6 +58,7 @@ export default class createTask extends Component{
                 flexDirection: "row",
                 justifyContent: "space-evenly",
                 width: "80%",
+                paddingTop: 40
             }}>
                 <TouchableOpacity 
                     style={[style.profileContainerStyle, this.state.child1 ? {
@@ -85,13 +89,22 @@ export default class createTask extends Component{
                 </TouchableOpacity>
             </View>
 
+          <View style={{
+            position: 'absolute',
+            right: 10,
+            bottom: 20
+          }}>
             <TouchableOpacity style={{
-                backgroundColor: "#f6f7c3CC",
-                borderRadius: 5,
-                padding: 15,
+              backgroundColor: "#f6f7c3CC",
+              borderRadius: 5,
+              padding: 20,
             }}>
-                <Text>Skapa Uppgift</Text>
+              <Text style={{
+        fontFamily: "Oswald-Regular",
+        fontSize: 20,              
+        }}>Skapa Uppgift</Text>
             </TouchableOpacity>
+          </View>
         </View>
         </SafeAreaView>
 
