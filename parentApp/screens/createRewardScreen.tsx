@@ -11,7 +11,7 @@ export default function childrenScreen({navigation}:any) {
         <View style={{flex:1}}>
         <SafeAreaView style={[SafeViewAndroid.AndroidSafeArea]}>
           <View style={globalStyle.container}>
-
+            
           </View>
         </SafeAreaView>
         <LinearGradient

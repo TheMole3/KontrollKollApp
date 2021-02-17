@@ -41,21 +41,6 @@ export default function App() {
           }} 
           component={ChildrenScreen} 
         />
-        <Tab.Screen name="createReward"
-            options={{
-            title: locale.pages.createReward, 
-            tabBarIcon: ({focused, color, size}) => (
-                <Image
-                source={require('../assets/rewardTrophy.png')}
-                style={{
-                    width: size,
-                    height: size,
-                }}
-                />
-            ),
-            }} 
-            component={CreateRewardScreen}
-        />
         <Tab.Screen name="createTask"
             options={{
             title: locale.pages.createTask, 
@@ -70,6 +55,21 @@ export default function App() {
             ),
             }} 
             component={CreateTaskScreen}
+        />
+        <Tab.Screen name="createReward"
+            options={{
+            title: locale.pages.createReward, 
+            tabBarIcon: ({focused, color, size}) => (
+                <Image
+                source={require('../assets/rewardTrophy.png')}
+                style={{
+                    width: size,
+                    height: size,
+                }}
+                />
+            ),
+            }} 
+            component={CreateRewardScreen}
         />
                 <Tab.Screen name="chat"
             options={{
