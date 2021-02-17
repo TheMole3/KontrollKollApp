@@ -104,7 +104,7 @@ export default class createTask extends Component{
                     <TouchableOpacity 
                         style={[style.profileContainerStyle, this.state.child1 ? {
                             borderWidth: 2,
-                            borderColor: "red"
+                            borderColor: "#000000"
                         }:{
                             borderWidth: 0
                         }]}
@@ -117,7 +117,7 @@ export default class createTask extends Component{
                     </TouchableOpacity>
                     <TouchableOpacity style={[style.profileContainerStyle, this.state.child2 ? {
                             borderWidth: 2,
-                            borderColor: "red"
+                            borderColor: "#000000"
                         }:{
                             borderWidth: 0
                         }]}
