@@ -54,8 +54,8 @@ export default function cameraScreen({navigation, route}:any) {
 
                    <Image 
                    style={{
-                     width: 60,
-                     height: 60
+                     width: 80,
+                     height: 80
                    }}
                    source={require("../../assets/cameraFlip.png")}></Image>
               </TouchableOpacity>
@@ -66,8 +66,8 @@ export default function cameraScreen({navigation, route}:any) {
                 }}>
                 <Image 
                    style={{
-                     width: 80,
-                     height: 80
+                     width: 90,
+                     height: 90
                    }}
                    source={require("../../assets/takePicture.png")}></Image>
               </TouchableOpacity>
@@ -107,7 +107,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: "#FFFFFF9F",
     borderRadius: 100,
-    padding: 3
+    padding: 8
   },
   text: {
     fontSize: 18,
