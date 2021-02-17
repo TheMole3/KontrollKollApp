@@ -32,12 +32,12 @@ export default class createTask extends Component{
     var emojis = require("../../assets/taskImages/taskImages").default;
     const emojiList = Object.keys(emojis).map((data) => {
         return (
-            <TouchableOpacity style={{
+            <TouchableOpacity style={[{
                 backgroundColor: "#ae69f5cc"
-            }}
+            }, data==this.state.selectedIcon ? {borderWidth:5}:{borderWidth:0, top:5}]}
             onPress={() => {this.setState({selectedIcon: data})}}
             >
-                <SvgUri style={[{width:80, height:80}, data==this.state.selectedIcon ? {borderWidth:5}:{borderWidth:0}]} source={emojis[data]}/>
+                <Image style={[{width:80, height:80}]} source={emojis[data]}/>
             </TouchableOpacity>
         )
     })
@@ -45,21 +45,21 @@ export default class createTask extends Component{
     return (
         <View style={{flex:1}}>
         <SafeAreaView style={[SafeViewAndroid.AndroidSafeArea]}>
-            <View style={{
-                flexDirection: "row"
-
-            }}>
-                <ScrollView
-                horizontal={true}
-                >
-                    {emojiList}
-                </ScrollView>
-            </View>
-
             <View style={[globalStyle.container, {
                 justifyContent: "center",
                 paddingBottom: 60
               }]}>
+                <View>
+                    <View style={{
+                        flexDirection: "row",
+                    }}>
+                        <ScrollView
+                        horizontal={true}
+                        >
+                            {emojiList}
+                        </ScrollView>
+                    </View>
+                </View>
                 <View style={{alignContent: "flex-start", paddingTop: 20}}>
                     <Text>Uppgiftens namn</Text>
                     <TextInput
