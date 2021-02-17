@@ -20,11 +20,10 @@ export default class createTask extends Component{
       // input changes of all the input field using ES6  
       // javascript feature computed property names 
       handleChange(e, name){ 
-          console.log(e)
         this.setState({ 
           // Computed property names 
           // keys of the objects are computed dynamically 
-          [name] : e.value /* OBS! Kan vara fel e.*   */
+          [name] : e.value 
         }) 
       } 
 
@@ -85,6 +84,14 @@ export default class createTask extends Component{
                     <Text style={style.profileText}>Hugo</Text>
                 </TouchableOpacity>
             </View>
+
+            <TouchableOpacity style={{
+                backgroundColor: "#f6f7c3CC",
+                borderRadius: 5,
+                padding: 15,
+            }}>
+                <Text>Skapa Uppgift</Text>
+            </TouchableOpacity>
         </View>
         </SafeAreaView>
 
