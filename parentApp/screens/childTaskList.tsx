@@ -34,7 +34,8 @@ const ToDo = ({props}:any) => {
     )
 }
 
-export default function children({navigation}:any) {
+export default function children({ route, navigation }:any) {
+        const { choosenChild } = route.params;
         // Get the tasks from kontroll.melo.se before loading app
         const [isLoading, setLoading] = useState(true);
         const [DATA, setData] = useState();
@@ -66,13 +67,13 @@ export default function children({navigation}:any) {
             let done = taskData.filter(e => e.done);
             let notDone = taskData.filter(e => !e.done);
 
-            done.unshift({
+            if(done.length  > 0) done.unshift({
                 split: "Gjorda uppgifter",
                 id: "GjordaUppgifter",
                 color: "#77d185CC"
             })
 
-            done[done.length++] = {
+            if(notDone.length > 0) done[done.length++] = {
                 split: "Ogjorda uppgifter",
                 id: "OgjordaUppgifter",
                 color: "#f6f7c3CC"
@@ -91,68 +92,27 @@ export default function children({navigation}:any) {
             );
         }
 
-        const [choosenChild, setChild] = useState(1);
-
+        console.log(DATA)
         return (
-            <View style={{flex:1}}>
+        <View style={{flex:1}}>
             <SafeAreaView style={[SafeViewAndroid.AndroidSafeArea]}>
             <View style={globalStyle.container}>
-                <View style={{
-                    display: "flex",
-                    flexDirection: "row",
-                    paddingBottom: 10,
-                    justifyContent: "space-evenly",
-                    width: "80%",
-                    top: 10,
-                }}>
-                    <TouchableOpacity style={[profileContainerStyle, choosenChild==2 ? {borderWidth: 2, borderColor: "black"}:{}]}
-                        onPress={() => {
-                            setChild(2)
-                        }}
-                    >
-                        <SvgUri
-                            source={require('../../assets/emoji/cactus.svg')}
-                        />
-                        <Text style={profileText}>Adam</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity style={[profileContainerStyle, choosenChild==1 ? {borderWidth: 2, borderColor: "black"}:{}]}
-                        onPress={() => {
-                            setChild(1)
-                        }}
-                    >
-                        <SvgUri
-                            source={require('../../assets/emoji/penguin.svg')}
-                        />
-                        <Text style={profileText}>Hugo</Text>
-                    </TouchableOpacity>
-                </View>
+                <SvgUri
+                    style={homeStyle.profilePic}
+                    source={emojis[DATA ? DATA.profilePic: "cactus" ]}
+                />
                 <View style={{width: "80%", flex: 1}}>
                     {childTasks()}
                 </View>
             </View>
             </SafeAreaView>
             <LinearGradient
-            colors={['#7400B8', "#6930C3", "#5E60CE", "#5390D9", "#4EA8DE", "#48BFE3", "#56CFE1", "#64DFDF", "#72EFDD", "#80FFDB"]}
-            style={globalStyle.linearGradient}
-            start={{ x: 0, y: 0 }}
-            end={{ x: .5, y: 1 }}
-            locations={[0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1]}
-        ></LinearGradient>
+                colors={['#7400B8', "#6930C3", "#5E60CE", "#5390D9", "#4EA8DE", "#48BFE3", "#56CFE1", "#64DFDF", "#72EFDD", "#80FFDB"]}
+                style={globalStyle.linearGradient}
+                start={{ x: 0, y: 0 }}
+                end={{ x: .5, y: 1 }}
+                locations={[0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1]}
+            ></LinearGradient>
         </View>
         );
-}
-
-var profileContainerStyle = {
-    width: 100,
-    height: 100,
-    backgroundColor: "#f6f7c3CC",
-    borderRadius: 50,
-    padding: 10,
-    paddingBottom: 40,
-}
-var profileText = {
-    fontFamily: "Oswald-Regular",
-    fontSize: 20,
-    alignSelf: "center",
-    bottom: 1,
 }

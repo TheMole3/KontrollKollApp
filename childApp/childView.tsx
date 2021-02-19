@@ -74,21 +74,6 @@ export default function App() {
           }} 
           component={RewardsScreen} 
         />
-        <Tab.Screen name="chat" 
-          options={{
-            title: locale.pages.chat,
-            tabBarIcon: ({focused, color, size}) => (
-              <Image
-                source={require('../assets/chat.png')}
-                style={{
-                  width: size,
-                  height: size,
-                }}
-              />
-            ),
-          }} 
-          component={UnimplementedScreen} 
-        />
       </Tab.Navigator>
   );
 }

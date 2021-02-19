@@ -16,14 +16,18 @@ var UnimplementedScreen = function() {
 }
 
 
-var ChildrenScreen = require("./screens/children.tsx").default;
+var ChildTaskList = require("./screens/childTaskList.tsx").default;
+var ChildSelect = require("./screens/childSelect.tsx").default;
+var ChildRewards = require("./screens/childRewards.tsx").default;
 var PictureScreen = require("./screens/picture.tsx").default;
 
 const childStack = createStackNavigator();
 function childrenStack() {
   return (
     <childStack.Navigator>
-      <childStack.Screen  name="Children" options={{headerShown: false}} component={ChildrenScreen} />
+      <childStack.Screen  name="childSelect" options={{headerShown: false}} component={ChildSelect} />
+      <childStack.Screen  name="childTaskList" options={{headerShown: false}} component={ChildTaskList} />
+      <childStack.Screen  name="childRewardList" options={{headerShown: false}} component={ChildRewards} />
       <childStack.Screen name="Picture" options={({ route }) => ({ title: route.params.task.title })} component={PictureScreen} />
     </childStack.Navigator>
   );
@@ -82,21 +86,6 @@ export default function App() {
             ),
             }} 
             component={CreateRewardScreen}
-        />
-                <Tab.Screen name="chat"
-            options={{
-            title: locale.pages.chat, 
-            tabBarIcon: ({focused, color, size}) => (
-                <Image
-                source={require('../assets/chat.png')}
-                style={{
-                    width: size,
-                    height: size,
-                }}
-                />
-            ),
-            }} 
-            component={CreateTaskScreen}
         />
       </Tab.Navigator>
   );
