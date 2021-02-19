@@ -97,10 +97,19 @@ export default function children({ route, navigation }:any) {
         <View style={{flex:1}}>
             <SafeAreaView style={[SafeViewAndroid.AndroidSafeArea]}>
             <View style={globalStyle.container}>
-                <SvgUri
-                    style={homeStyle.profilePic}
-                    source={emojis[DATA ? DATA.profilePic: "cactus" ]}
-                />
+                <View style= {{flexDirection:"row"}}>
+                    <View style={profileContainerStyle}>
+                        <Text>Uppgifter</Text>
+                    </View>
+                    <View style={profileContainerStyle}>
+                        <SvgUri
+                            source={emojis[DATA ? DATA.profilePic: "" ]}
+                        />
+                    </View>
+                    <View style={profileContainerStyle}>
+                        <Text>Belöningar</Text>
+                    </View>
+                </View>
                 <View style={{width: "80%", flex: 1}}>
                     {childTasks()}
                 </View>
@@ -115,4 +124,13 @@ export default function children({ route, navigation }:any) {
             ></LinearGradient>
         </View>
         );
+}
+
+var profileContainerStyle = {
+    marginTop: 10,
+    width: 50,
+    height: 50,
+    backgroundColor: "#f6f7c3CC",
+    borderRadius: 20,
+    padding: 5,
 }
