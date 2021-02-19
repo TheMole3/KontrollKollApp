@@ -97,17 +97,21 @@ export default function children({ route, navigation }:any) {
         <View style={{flex:1}}>
             <SafeAreaView style={[SafeViewAndroid.AndroidSafeArea]}>
             <View style={globalStyle.container}>
-                <View style= {{flexDirection:"row"}}>
-                    <TouchableOpacity style={profileContainerStyle}>
-                        <Text>Uppgifter</Text>
+                <View style= {{flexDirection:"row", width: "80%", justifyContent:"space-evenly"}}>
+                    <TouchableOpacity style={[profileContainerStyle, {
+                        width: 100
+                    }]}>
+                        <Text style={buttonStyle}>Uppgifter</Text>
                     </TouchableOpacity>
                     <TouchableOpacity style={profileContainerStyle}>
                         <SvgUri
                             source={emojis[DATA ? DATA.profilePic: "" ]}
                         />
                     </TouchableOpacity>
-                    <TouchableOpacity style={profileContainerStyle}>
-                        <Text>Belöningar</Text>
+                    <TouchableOpacity style={[profileContainerStyle, {
+                        width: 100
+                    }]}>
+                        <Text style={buttonStyle}>Belöningar</Text>
                     </TouchableOpacity>
                 </View>
                 <View style={{width: "80%", flex: 1}}>
@@ -133,4 +137,7 @@ var profileContainerStyle = {
     backgroundColor: "#f6f7c3CC",
     borderRadius: 20,
     padding: 5,
+}
+var buttonStyle = {
+    fontFamily: "Oswald-bold",
 }
