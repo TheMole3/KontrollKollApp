@@ -106,7 +106,11 @@ export default function children({ route, navigation }:any) {
                             source={emojis[DATA ? DATA.profilePic: "" ]}
                         />
                     </TouchableOpacity>
-                    <TouchableOpacity style={profileContainerStyle}>
+                    <TouchableOpacity style={profileContainerStyle}
+                        onPress={() => {
+                            navigation.navigate("childRewards", {choosenChild: choosenChild})
+                        }}
+                    >
                         <Text>Belöningar</Text>
                     </TouchableOpacity>
                 </View>
