@@ -4,7 +4,7 @@ import * as React from 'react';
 import {View, Image, ToastAndroid} from'react-native';
 import { manipulateAsync, SaveFormat } from 'expo-image-manipulator';    
 
-export default function notification({ route, navigation }) {
+export default function notification({ route, Navigator }) {
    const { photo, task } = route.params;
    console.log("https://kontroll.melo.se" + task.pic)
 
