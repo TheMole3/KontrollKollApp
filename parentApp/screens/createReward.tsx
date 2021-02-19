@@ -88,7 +88,7 @@ export default class createReward extends Component{
                 <TouchableOpacity 
                   style={[style.profileContainerStyle, this.state.child1 ? {
                     borderWidth: 2,
-                    borderColor: "red"
+                    borderColor: "black"
                   }:{
                     borderWidth: 0
                   }]}
@@ -101,7 +101,7 @@ export default class createReward extends Component{
                 </TouchableOpacity>
                 <TouchableOpacity style={[style.profileContainerStyle, this.state.child2 ? {
                     borderWidth: 2,
-                    borderColor: "red"
+                    borderColor: "black"
                   }:{
                     borderWidth: 0
                   }]}
