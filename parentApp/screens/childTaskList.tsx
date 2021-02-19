@@ -108,10 +108,12 @@ export default function children({ route, navigation }:any) {
                             source={emojis[DATA ? DATA.profilePic: "" ]}
                         />
                     </TouchableOpacity>
-                    <TouchableOpacity style={[profileContainerStyle, {
-                        width: 100
-                    }]}>
-                        <Text style={buttonStyle}>Belöningar</Text>
+                    <TouchableOpacity style={profileContainerStyle}
+                        onPress={() => {
+                            navigation.navigate("childRewards", {choosenChild: choosenChild})
+                        }}
+                    >
+                        <Text>Belöningar</Text>
                     </TouchableOpacity>
                 </View>
                 <View style={{width: "80%", flex: 1}}>
