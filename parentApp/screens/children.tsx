@@ -66,16 +66,18 @@ export default function children({navigation}:any) {
             let done = taskData.filter(e => e.done);
             let notDone = taskData.filter(e => !e.done);
 
-            done[done.length++] = {
-                split: "Ogjorda uppgifter",
-                id: "OgjordaUppgifter",
-                color: "#95e8a1CC"
-            }
             done.unshift({
                 split: "Gjorda uppgifter",
                 id: "GjordaUppgifter",
-                color: "#95e8a1CC"
+                color: "#77d185CC"
             })
+
+            done[done.length++] = {
+                split: "Ogjorda uppgifter",
+                id: "OgjordaUppgifter",
+                color: "#f6f7c3CC"
+            }
+
 
             taskData = done.concat(notDone)
             console.log(taskData)
