@@ -98,17 +98,17 @@ export default function children({ route, navigation }:any) {
             <SafeAreaView style={[SafeViewAndroid.AndroidSafeArea]}>
             <View style={globalStyle.container}>
                 <View style= {{flexDirection:"row"}}>
-                    <View style={profileContainerStyle}>
+                    <TouchableOpacity style={profileContainerStyle}>
                         <Text>Uppgifter</Text>
-                    </View>
-                    <View style={profileContainerStyle}>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={profileContainerStyle}>
                         <SvgUri
                             source={emojis[DATA ? DATA.profilePic: "" ]}
                         />
-                    </View>
-                    <View style={profileContainerStyle}>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={profileContainerStyle}>
                         <Text>Belöningar</Text>
-                    </View>
+                    </TouchableOpacity>
                 </View>
                 <View style={{width: "80%", flex: 1}}>
                     {childTasks()}
