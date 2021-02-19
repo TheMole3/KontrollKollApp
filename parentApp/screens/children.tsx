@@ -14,8 +14,8 @@ import emojis from '../../assets/emoji/emojis';
 
 const ToDo = ({props}:any) => {
     if(props.item.split) return (
-        <View style={[homeStyle.TodoView, {marginTop:20}]}>
-            <Text style={{fontFamily: "Oswald-Light",}}>{props.item.split}</Text>
+        <View style={[homeStyle.TodoView, {marginTop:20, backgroundColor: props.item.color}]}>
+            <Text style={{fontFamily: "Oswald-Light"}}>{props.item.split}</Text>
         </View>
     )
     return (
@@ -68,11 +68,13 @@ export default function children({navigation}:any) {
 
             done[done.length++] = {
                 split: "Ogjorda uppgifter",
-                id: "OgjordaUppgifter"
+                id: "OgjordaUppgifter",
+                color: "#95e8a1CC"
             }
             done.unshift({
                 split: "Gjorda uppgifter",
                 id: "GjordaUppgifter",
+                color: "#95e8a1CC"
             })
 
             taskData = done.concat(notDone)
