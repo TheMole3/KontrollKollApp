@@ -19,7 +19,7 @@ const ToDo = ({props}:any) => {
         </View>
     )
     return (
-      <TouchableOpacity style={[homeStyle.TodoView, props.item.done ? {backgroundColor: "red"}: {}]} // Clickable object
+      <TouchableOpacity style={[homeStyle.TodoView, props.item.done ? {backgroundColor: "#95e8a1CC"}: {}]} // Clickable object
         onPress={() => {
             if(props.item.done) props.navigation.navigate('Picture', {"task": props.item}) // Navigate to camera and send item info with
         }}
@@ -100,7 +100,7 @@ export default function children({navigation}:any) {
                     width: "80%",
                     top: 10,
                 }}>
-                    <TouchableOpacity style={[profileContainerStyle, choosenChild==2 ? {borderWidth: 2, borderColor: "red"}:{}]}
+                    <TouchableOpacity style={[profileContainerStyle, choosenChild==2 ? {borderWidth: 2, borderColor: "black"}:{}]}
                         onPress={() => {
                             setChild(2)
                         }}
@@ -110,7 +110,7 @@ export default function children({navigation}:any) {
                         />
                         <Text style={profileText}>Adam</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity style={[profileContainerStyle, choosenChild==1 ? {borderWidth: 2, borderColor: "red"}:{}]}
+                    <TouchableOpacity style={[profileContainerStyle, choosenChild==1 ? {borderWidth: 2, borderColor: "black"}:{}]}
                         onPress={() => {
                             setChild(1)
                         }}
