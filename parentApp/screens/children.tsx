@@ -51,6 +51,7 @@ export default function children({navigation}:any) {
                 setData( response[0] );
             })
         } , [isFocused])
+
         function childTasks() {            
             const renderItem = ({item, index}:any) => ( // Render into flatlist
                 <ToDo props={{item, navigation, index}} />
@@ -71,7 +72,7 @@ export default function children({navigation}:any) {
             }
             done.unshift({
                 split: "Gjorda uppgifter",
-                id: "GjordaUppgifter"
+                id: "GjordaUppgifter",
             })
 
             taskData = done.concat(notDone)
