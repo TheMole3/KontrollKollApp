@@ -47,10 +47,8 @@ export default function HomeScreen({navigation}:any) {
 
   const isFocused = useIsFocused() // When focused re-render tasks
   useEffect(() => {
-    setLoading( true )
     fetch("https://kontroll.melo.se/getTasks?id=" + global.pId).then((response) => response.json()).then((response) => {
       setData( response[0] );
-      setLoading( false )
     })
   } , [isFocused])
 
@@ -84,7 +82,6 @@ export default function HomeScreen({navigation}:any) {
             data={taskData}
             extraData={taskData}
             renderItem={( item, index ) => renderItem(item, index)}
-            keyExtractor={(item, index) => index.toString()}
             style={{width:"80%", flex:50}}
           />
         </View>

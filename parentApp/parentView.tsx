@@ -15,10 +15,22 @@ var UnimplementedScreen = function() {
   );
 }
 
-const TaskStack = createStackNavigator();
 
 var ChildrenScreen = require("./screens/children.tsx").default;
-var CreateRewardScreen = require("./screens/createRewardScreen.tsx").default;
+var PictureScreen = require("./screens/picture.tsx").default;
+
+const childStack = createStackNavigator();
+function childrenStack() {
+  return (
+    <childStack.Navigator>
+      <childStack.Screen  name="Children" options={{headerShown: false}} component={ChildrenScreen} />
+      <childStack.Screen name="Picture" options={({ route }) => ({ title: route.params.task.title })} component={PictureScreen} />
+    </childStack.Navigator>
+  );
+}
+
+
+var CreateRewardScreen = require("./screens/createReward.tsx").default;
 var CreateTaskScreen = require("./screens/createTask.tsx").default;
 
 const Tab = createBottomTabNavigator();
@@ -39,7 +51,7 @@ export default function App() {
               />
             ),
           }} 
-          component={ChildrenScreen} 
+          component={childrenStack} 
         />
         <Tab.Screen name="createTask"
             options={{
