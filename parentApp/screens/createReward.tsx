@@ -75,7 +75,8 @@ export default class createReward extends Component{
             </View>
             <View style={{
               paddingTop: 40,
-              alignItems: "center"
+              alignItems: "center",
+              
             }}>
               <Text style={[style.text, {
                 paddingBottom: 10

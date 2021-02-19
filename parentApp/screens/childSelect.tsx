@@ -61,13 +61,14 @@ export default function children({navigation}:any) {
 }
 
 var profileContainerStyle = {
-    width: 100,
-    height: 100,
+    width: 120,
+    height: 120,
     backgroundColor: "#f6f7c3CC",
     borderRadius: 50,
     padding: 10,
     paddingBottom: 40,
 }
+
 var profileText = {
     fontFamily: "Oswald-Regular",
     fontSize: 20,
