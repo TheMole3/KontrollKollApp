@@ -112,7 +112,7 @@ export default function children({ route, navigation }:any) {
                         width: 100
                     }]}
                         onPress={() => {
-                            navigation.navigate("childRewards", {choosenChild: choosenChild})
+                            navigation.navigate("childRewardList", {choosenChild: choosenChild})
                         }}
                     >
                         <Text style={buttonStyle}>Belöningar</Text>
@@ -141,9 +141,9 @@ var profileContainerStyle = {
     backgroundColor: "#f6f7c3CC",
     borderRadius: 20,
     padding: 5,
+    justifyContent: "center"
 }
 var buttonStyle = {
     fontFamily: "Oswald-Bold",
     alignSelf: "center",
-    lineHeight: 50,
 }
