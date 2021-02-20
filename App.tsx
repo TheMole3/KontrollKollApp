@@ -28,15 +28,10 @@ function SelectScreen({navigation}:any) {
             style={{backgroundColor: "#f24998",
             marginLeft: 5,
             marginRight: 5,
-            flexDirection: "row",
             alignItems: "center",
-            borderWidth: 0.5,
-            borderColor: "#66614f",
             borderRadius: 5,
             marginBottom:10,
             padding:60,
-            shadowOpacity: 0.34,
-            shadowRadius: 6.27,
           }}
           onPress={() => {
             navigation.navigate("Parent")
@@ -48,15 +43,10 @@ function SelectScreen({navigation}:any) {
             style={{backgroundColor: "#4cc9f0",
             marginLeft: 5,
             marginRight: 5,
-            flexDirection: "row",
             alignItems: "center",
-            borderWidth: 0.5,
-            borderColor: "#66614f",
             borderRadius: 5,
             marginBottom:10,
             padding:60,
-            shadowOpacity: 0.34,
-            shadowRadius: 6.27,
           }}
           onPress={() => {
             navigation.navigate("Child")
